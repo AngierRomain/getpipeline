@@ -5,7 +5,7 @@ pipeline {
             steps {
                  echo 'Hello Build !'
                  script{
-                     def response = sh(script: 'curl -I --user romainangier:p1t13m98/ 127.0.0.1:8080', returnStdout: true) 
+                     def response = sh(script: 'curl https://google.fr', returnStdout: true) 
                  }  
             }
         }
