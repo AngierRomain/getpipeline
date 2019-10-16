@@ -4,12 +4,13 @@ pipeline {
         stage('Build') { 
             steps {
                  echo 'Hello Build !'
-                 def get = new URL("https://httpbin.org/get").openConnection();
-                 def getRC = get.getResponseCode();
-                 println(getRC);
-                 if(getRC.equals(200)) {
-                 println(get.getInputStream().getText());
-                 }
+                 script{
+                    def get = new URL("https://google.com").openConnection()
+                    get.setRequestMethod("GET")
+                    get.setDoOutput(true)
+                    get.connect()
+                    def response = get.content.text
+                    return response
             }
         }
 
@@ -18,7 +19,7 @@ pipeline {
                 echo 'Hello Test !'
             }
         }
-        
+
         stage('Deploy') { 
             steps {
                  echo 'Hello Deploy !'
