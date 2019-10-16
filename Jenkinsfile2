@@ -5,7 +5,7 @@ pipeline {
             steps {
                  echo 'Hello Build !'
                  script{
-                     def response = sh(script: 'curl https://google.fr', returnStdout: true) 
+                     def response = sh(script: 'curl -b session -X POST http://deployhub.openmakesoftware.com/API/UserProfile?user=admin', returnStdout: true) 
                  }  
             }
         }
