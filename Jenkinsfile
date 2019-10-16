@@ -5,8 +5,13 @@ pipeline {
             steps {
                  echo 'Hello Build !'
                  script{
-                    sh curl -I www.google.com 
-                 }   
+                    def get = new URL("https://google.com").openConnection()
+                    get.setRequestMethod("GET")
+                    get.setDoOutput(true)
+                    get.connect()
+                    def response = get.content.text
+                    return response
+                 }  
             }
         }
 
