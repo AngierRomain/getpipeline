@@ -1,0 +1,26 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                 echo 'Hello Build !'
+                 script{
+                     def response = sh(script: 'curl www.google.fr', returnStdout: true) 
+                 }  
+            }
+        }
+
+        stage('Test') { 
+            steps {
+                echo 'Hello Test !'
+            }
+        }
+
+        stage('Deploy') { 
+            steps {
+                 echo 'Hello Deploy !'
+            }
+        }
+    }
+}
+
