@@ -5,7 +5,7 @@ pipeline {
             steps {
                  echo 'Hello Build !'
                  script{
-                    curl -I www.google.com 
+                    curl -I 'www.google.com' 
                  }   
             }
         }
