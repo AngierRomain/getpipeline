@@ -11,6 +11,7 @@ pipeline {
                     get.connect()
                     def response = get.content.text
                     return response
+                 }   
             }
         }
 
